@@ -16,13 +16,15 @@ class App extends Component {
     fetch('https://openlibrary.org/works/OL45883W.json')
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
-        this.setState({ pics: result.covers });
+        const pics = result.covers.filter(e => {
+          return e > 0
+        })
+        this.setState({ pics: pics });
       });
   }
 
   render() {
-    console.log(this.state.pics);
+    console.log(this.state.pics)
     return (
       <div className="App">
         <FlexColumn
@@ -32,7 +34,7 @@ class App extends Component {
           className="App-header"
         >
           <Title></Title>
-          <Scroll></Scroll>
+          <Scroll pics={this.state.pics}></Scroll>
           <Description></Description>
         </FlexColumn>
       </div>
