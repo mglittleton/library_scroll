@@ -1,11 +1,15 @@
 import './App.css';
+import Title from './Components/Title'
+import Scroll from './Components/Scroll'
+import Description from './Components/Description'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>Hello World</div>
-
+        <Title></Title>
+        <Scroll></Scroll>
+        <Description></Description>
       </header>
       <div>
       </div>
