@@ -1,11 +1,8 @@
 import '../App.css';
+import { FlexRow } from './customComponents';
 
 function Description() {
-  return (
-    <div>
-      Hello Description
-    </div>
-  );
+  return <FlexRow border alignCenter style={{flex: 2}}>Here's the Description</FlexRow>;
 }
 
 export default Description;

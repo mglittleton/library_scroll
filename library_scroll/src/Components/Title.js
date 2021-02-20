@@ -1,11 +1,8 @@
 import '../App.css';
+import { FlexRow } from './customComponents';
 
 function Title() {
-  return (
-    <div>
-      Hello Title
-    </div>
-  );
+  return <FlexRow border flex='1' alignCenter >Hello Title</FlexRow>;
 }
 
 export default Title;
