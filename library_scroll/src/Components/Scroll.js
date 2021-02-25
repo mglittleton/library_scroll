@@ -14,7 +14,7 @@ export default class Scroll extends Component {
         infinite: true,
         centerPadding: '100px',
         slidesToShow: 3,
-        speed: 500,
+        speed: 5000,
         autoplay: true,
         afterChange: current => this.setState({activeIndex: current})
       },
