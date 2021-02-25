@@ -47,15 +47,12 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.pics);
-    // const temp = this.state.books.map(e => {
-
-    // })
+    const {books} = this.state
     return (
       <div className="App">
-        <Title></Title>
-        <Scroll books={this.state.books}></Scroll>
-        <Description books={this.state.books}></Description>
+        {/* <Title></Title> */}
+        <Scroll books={books}/>
+        {/* <Description books={this.state.books}></Description> */}
       </div>
     );
   }
@@ -77,12 +74,3 @@ const devBooks = [
   9781603093699,
 ];
 
-// TODO Use the following to rethink the images
-//   "imageLinks": {
-//   "smallThumbnail": string,
-//   "thumbnail": string,
-//   "small": string,
-//   "medium": string,
-//   "large": string,
-//   "extraLarge": string
-// },

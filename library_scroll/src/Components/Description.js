@@ -1,10 +1,10 @@
 import { FlexRow } from './customComponents';
 
 function Description(props) {
-  console.log(props.books)
+  const {descr} = props
   return (
     <div style={{height: "30%"}} >
-      {props.books.description}
+      {descr}
     </div>
   );
 }
