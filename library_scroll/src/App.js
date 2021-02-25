@@ -75,3 +75,8 @@ const devBooks = [
 
 // TODO clean up all the CSS that is scattered throughout
 // TODO maybe build solid styled-components?
+// TODO grab ISBN numbers from Google Drive doc
+// TODO move description down some
+// TODO make middle pic pop and/or side pics fade
+// TODO make descr editable from Google doc
+// TODO make a pause button and/or speed scroll
