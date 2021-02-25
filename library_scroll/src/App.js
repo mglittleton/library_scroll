@@ -16,32 +16,33 @@ class App extends Component {
   }
 
   componentDidMount() {
-    devBooks.forEach(e => {
-      fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${e}&key=${googleBooksAPI}`)
-        .then((response) => response.json())
-        .then((result) => {
-          console.log(result)
-          if (result.totalItems) {
-            const books = result.totalItems ? result.items[0].volumeInfo : false
-            const newBooks = this.state.books
-            newBooks.push(books)
-            this.setState({ books: newBooks });
-          }
-       });
-    })
-    // TODO this is a temp solution during development to ease the API usage
-    // bookList.forEach((e) => {
-    //   const book = e.items[0].volumeInfo;
-    //   const newBooks = this.state.books;
-    //   newBooks.push(book);
-    //   const pics = book.imageLinks;
-    //   const newPics = this.state.pics;
-    //   newPics.push(pics);
-    //   this.setState({
-    //     books: newBooks,
-    //     pics: newPics,
-    //   });
-    // });
+    // devBooks.forEach(e => {
+    //   fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${e}&key=${googleBooksAPI}`)
+    //     .then((response) => response.json())
+    //     .then((result) => {
+    //       console.log(result)
+    //       if (result.totalItems) {
+    //         const books = result.totalItems ? result.items[0].volumeInfo : false
+    //         const newBooks = this.state.books
+    //         newBooks.push(books)
+    //         this.setState({ books: newBooks });
+    //       }
+    //    });
+    // })
+    // TODO make this switch automatically if in dev
+    // NOTE this is a temp solution during development to ease the API usage
+    bookList.forEach((e) => {
+      const book = e.items[0].volumeInfo;
+      const newBooks = this.state.books;
+      newBooks.push(book);
+      const pics = book.imageLinks;
+      const newPics = this.state.pics;
+      newPics.push(pics);
+      this.setState({
+        books: newBooks,
+        pics: newPics,
+      });
+    });
   }
 
   render() {
@@ -73,10 +74,3 @@ const devBooks = [
   9781338159318,
 ];
 
-// TODO clean up all the CSS that is scattered throughout
-// TODO maybe build solid styled-components?
-// TODO grab ISBN numbers from Google Drive doc
-// TODO move description down some
-// TODO make middle pic pop and/or side pics fade
-// TODO make descr editable from Google doc
-// TODO make a pause button and/or speed scroll
