@@ -24,10 +24,8 @@ export default class Scroll extends Component {
 
   render() {
     const {books} = this.props
-    console.log(books)
     const {settings, activeIndex} = this.state
-    console.log(activeIndex)
-    const book = activeIndex == undefined ? "Please wait while loading...": books[activeIndex]
+    const book = activeIndex == undefined ? {description: "Please wait while loading...", title: "Waiting on titles"}: books[activeIndex]
     const descr = book.description
     const title = book.title
 
