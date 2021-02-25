@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
-import { FlexRow } from './customComponents';
 import Slider from 'react-slick';
+
 import Title from './Title'
 import Description from './Description'
 
@@ -28,11 +27,13 @@ export default class Scroll extends Component {
     console.log(books)
     const {settings, activeIndex} = this.state
     console.log(activeIndex)
-    const descr = activeIndex == undefined ? "Please wait while loading...": books[activeIndex].description
+    const book = activeIndex == undefined ? "Please wait while loading...": books[activeIndex]
+    const descr = book.description
+    const title = book.title
 
     return (
       <div className="slider" style={{ height: '50vh' }}>
-        <Title />
+        <Title title={title} />
         <Slider {...settings}>
           {books.map((e, i) => {
             if (!e || !e.imageLinks) {

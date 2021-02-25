@@ -1,4 +1,3 @@
-import { FlexRow } from './customComponents';
 
 function Description(props) {
   const {descr} = props

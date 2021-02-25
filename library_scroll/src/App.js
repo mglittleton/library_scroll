@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import './App.css';
-import { FlexRow, FlexColumn } from './Components/customComponents';
-import Title from './Components/Title';
 import Scroll from './Components/Scroll';
-import Description from './Components/Description';
 import { bookList } from './temp';
 
+// TODO while it doesn't matter much for this, I should hide this in a dotenv eventually
 const googleBooksAPI = 'AIzaSyCTE-A9T51L4HTR00zPIyAY5SpvLnN0tOg';
 
 class App extends Component {
@@ -32,6 +29,7 @@ class App extends Component {
     //       }
     //    });
     // })
+    // TODO this is a temp solution during development to ease the API usage
     bookList.forEach((e) => {
       const book = e.items[0].volumeInfo;
       const newBooks = this.state.books;
@@ -50,9 +48,7 @@ class App extends Component {
     const {books} = this.state
     return (
       <div className="App">
-        {/* <Title></Title> */}
         <Scroll books={books}/>
-        {/* <Description books={this.state.books}></Description> */}
       </div>
     );
   }
@@ -74,3 +70,5 @@ const devBooks = [
   9781603093699,
 ];
 
+// TODO clean up all the CSS that is scattered throughout
+// TODO maybe build solid styled-components?
