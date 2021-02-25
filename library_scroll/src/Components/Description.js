@@ -1,4 +1,3 @@
-import '../App.css';
 import { FlexRow } from './customComponents';
 
 function Description() {
