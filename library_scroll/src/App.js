@@ -47,19 +47,15 @@ class App extends Component {
   }
 
   render() {
-
-
     console.log(this.state.pics);
     // const temp = this.state.books.map(e => {
 
     // })
     return (
       <div className="App">
-        <div style={{ height: '100vh' }}>
-          <Title></Title>
-          <Scroll books={this.state.books}></Scroll>
-          <Description></Description>
-        </div>
+        <Title></Title>
+        <Scroll books={this.state.books}></Scroll>
+        <Description books={this.state.books}></Description>
       </div>
     );
   }

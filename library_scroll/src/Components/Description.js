@@ -1,7 +1,12 @@
 import { FlexRow } from './customComponents';
 
-function Description() {
-  return <FlexRow alignCenter flex='2' >Here's the Description</FlexRow>;
+function Description(props) {
+  console.log(props.books)
+  return (
+    <div style={{height: "30%"}} >
+      {props.books.description}
+    </div>
+  );
 }
 
 export default Description;

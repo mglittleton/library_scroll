@@ -1,11 +1,12 @@
 
-
 .App {
   background-image: linear-gradient(#773141, black, #d39f2e);
   color: rgb(220, 240, 255);
   font-family: sans-serif;
   text-align: center;
   width: 100%;
+  margin: auto;
+  height: 100vh;
 }
 
 .slider {
