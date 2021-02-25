@@ -1,6 +1,6 @@
 
 Todo:
-  ☐ move description down some
+  ✔ move description down some @done(02-25-21 17:09)
   ☐ make middle pic pop and/or side pics fade
   ☐ grab ISBN numbers from Google Drive doc
   ☐ make descr editable from Google doc
@@ -8,3 +8,19 @@ Todo:
   ☐ maybe build solid styled-components?
   ☐ make a pause button and/or speed scroll
   ☐ ensure no console.logs
+  ☐ Fill out README with explanations
+
+Archive:
+
+
+
+Notes (keywords):
+  - Ctrl-Enter    => Toggle line as task entry
+  - Alt-D         => Toggle done
+  - Alt C         => Toggle cancelled task
+  - @ symbols     => Add tags
+  - * symbols     => Surrounds bold type
+  - _ symbols     => Surround italicized type
+  - ~ symbols     => Surrounds strikethrough type
+  - ` symbols     => (back-tic) Surrounds code blocks
+  - : symbols     => At end of line, denotes projects

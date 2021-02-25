@@ -17,16 +17,18 @@ export default class Scroll extends Component {
         speed: 500,
         autoplay: true,
         autoplaySpeed: 10000,
+        initialSlide: 0,
         afterChange: current => this.setState({activeIndex: current})
       },
-      activeIndex: undefined
+      activeIndex: undefined,
+      blankBook: {description: "Please wait while loading...", title: "Waiting on titles"}
     };
   }
 
   render() {
     const {books} = this.props
-    const {settings, activeIndex} = this.state
-    const book = activeIndex == undefined ? {description: "Please wait while loading...", title: "Waiting on titles"}: books[activeIndex]
+    const {settings, activeIndex, blankBook} = this.state
+    const book = activeIndex == undefined ? blankBook: books[activeIndex]
     const descr = book.description
     const title = book.title
 
@@ -39,7 +41,7 @@ export default class Scroll extends Component {
               return (
                 <div className="covers">
                   <img
-                    key={i}
+                    key={e.industryIdentifiers[0].identifier}
                     src="https://books.google.com/googlebooks/images/no_cover_thumb.gif"
                   />
                 </div>
