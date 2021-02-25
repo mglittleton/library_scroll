@@ -16,32 +16,32 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // devBooks.forEach(e => {
-    //   fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${e}&key=${googleBooksAPI}`)
-    //     .then((response) => response.json())
-    //     .then((result) => {
-    //       console.log(result)
-    //       if (result.totalItems) {
-    //         const books = result.totalItems ? result.items[0].volumeInfo : false
-    //         const newBooks = this.state.books
-    //         newBooks.push(books)
-    //         this.setState({ books: newBooks });
-    //       }
-    //    });
-    // })
+    devBooks.forEach(e => {
+      fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${e}&key=${googleBooksAPI}`)
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result)
+          if (result.totalItems) {
+            const books = result.totalItems ? result.items[0].volumeInfo : false
+            const newBooks = this.state.books
+            newBooks.push(books)
+            this.setState({ books: newBooks });
+          }
+       });
+    })
     // TODO this is a temp solution during development to ease the API usage
-    bookList.forEach((e) => {
-      const book = e.items[0].volumeInfo;
-      const newBooks = this.state.books;
-      newBooks.push(book);
-      const pics = book.imageLinks;
-      const newPics = this.state.pics;
-      newPics.push(pics);
-      this.setState({
-        books: newBooks,
-        pics: newPics,
-      });
-    });
+    // bookList.forEach((e) => {
+    //   const book = e.items[0].volumeInfo;
+    //   const newBooks = this.state.books;
+    //   newBooks.push(book);
+    //   const pics = book.imageLinks;
+    //   const newPics = this.state.pics;
+    //   newPics.push(pics);
+    //   this.setState({
+    //     books: newBooks,
+    //     pics: newPics,
+    //   });
+    // });
   }
 
   render() {
@@ -59,15 +59,18 @@ export default App;
 // TODO need to find an easy way to access the list of ISBN numbers
 const devBooks = [
   9781534437333,
-  1596431687,
   9781627791151,
-  62885502,
-  62872044,
-  1984848593,
-  9781603090476,
-  9781891830853,
-  9781603090773,
-  9781603093699,
+  9781532118517,
+  9780545723336,
+  9781338255720,
+  9781681199498,
+  9780823438686,
+  9781368013840,
+  9780545946179,
+  9781338129304,
+  9781368039932,
+  9781338157796,
+  9781338159318,
 ];
 
 // TODO clean up all the CSS that is scattered throughout
