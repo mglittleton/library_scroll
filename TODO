@@ -1,0 +1,10 @@
+
+Todo:
+  ☐ move description down some
+  ☐ make middle pic pop and/or side pics fade
+  ☐ grab ISBN numbers from Google Drive doc
+  ☐ make descr editable from Google doc
+  ☐ clean up all the CSS that is scattered throughout
+  ☐ maybe build solid styled-components?
+  ☐ make a pause button and/or speed scroll
+  ☐ ensure no console.logs
