@@ -1,10 +1,28 @@
 
 Todo:
-  ☐ move description down some
-  ☐ make middle pic pop and/or side pics fade
-  ☐ grab ISBN numbers from Google Drive doc
-  ☐ make descr editable from Google doc
+  ✔ move description down some @done(02-25-21 17:09)
+  ✔ make middle pic pop and/or side pics fade @done(02-26-21 11:44)
+  ✘ grab ISBN numbers from Google Drive doc @cancelled(02-26-21 11:45)
+  ✘ make descr editable from Google doc @cancelled(02-26-21 11:45)
   ☐ clean up all the CSS that is scattered throughout
   ☐ maybe build solid styled-components?
   ☐ make a pause button and/or speed scroll
+  ☐ Change site title and favicon
   ☐ ensure no console.logs
+  ☐ Fill out README with explanations
+  ☐ Begin new project - front and back end - admin page
+
+Archive:
+
+
+
+Notes (keywords):
+  - Ctrl-Enter    => Toggle line as task entry
+  - Alt-D         => Toggle done
+  - Alt C         => Toggle cancelled task
+  - @ symbols     => Add tags
+  - * symbols     => Surrounds bold type
+  - _ symbols     => Surround italicized type
+  - ~ symbols     => Surrounds strikethrough type
+  - ` symbols     => (back-tic) Surrounds code blocks
+  - : symbols     => At end of line, denotes projects
