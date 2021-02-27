@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 
 import Title from './Title';
 import Description from './Description';
+import NavBar from './NavBar'
 
 export default class Scroll extends Component {
   constructor(props) {
@@ -44,9 +45,9 @@ export default class Scroll extends Component {
     const title = book.title;
 
     return picInitSize ? (
-      <div className="slider" style={{ height: '50vh' }}>
+      <div className="slider" >
         <Title title={title} />
-        <Slider {...settings}>
+        <Slider {...settings} style={{ height: '40vh' }}>
           {books.map((e, i) => {
             // this sets the initial width to `picInitSize`
             // then changes it to `popPercent`% bigger if it's the active pic

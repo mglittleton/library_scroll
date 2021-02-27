@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import './App.css';
 import Scroll from './Components/Scroll';
 import { newBookList } from './temp2';
+import NavBar from './Components/NavBar';
+import SignIn from './Components/SignIn';
+import Admin from './Components/Admin';
+import Register from './Components/Register';
 
 const { REACT_APP_GOOGLE_API_KEY, REACT_APP_MODE } = process.env;
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { books: [], pics: [] };
   }
 
@@ -49,7 +54,11 @@ class App extends Component {
     const { books } = this.state;
     return (
       <div className="App">
-        <Scroll books={books} />
+        <NavBar />
+        <Route exact path='/' render={props => <Scroll books={books} {...props} />} />
+        <Route path='/signin/' render={props => <SignIn {...props} />} />
+        <Route path='/register/' render={props => <Register {...props} />} />
+        <Route path='/admin/' render={props => <Admin {...props} />} />
       </div>
     );
   }
