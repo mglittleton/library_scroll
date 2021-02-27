@@ -1,5 +1,5 @@
 
-Todo:
+Main Site:
   ✔ move description down some @done(02-25-21 17:09)
   ✔ make middle pic pop and/or side pics fade @done(02-26-21 11:44)
   ✘ grab ISBN numbers from Google Drive doc @cancelled(02-26-21 11:45)
@@ -8,9 +8,22 @@ Todo:
   ☐ maybe build solid styled-components?
   ☐ make a pause button and/or speed scroll
   ☐ Change site title and favicon
-  ☐ ensure no console.logs
+  ✔ ensure no console.logs @done(02-27-21 10:43)
   ☐ Fill out README with explanations
-  ☐ Begin new project - front and back end - admin page
+  ✔ Begin new project - front and back end - admin page @done(02-27-21 10:43)
+
+Admin Page:
+  ☐ Add Router to project
+  ☐ Add Sign-in button to Scroll
+
+Sign In Page:
+  ☐ Sign In/Up
+  ☐ Password Rules
+  ☐ OAuth?
+
+Database/Back End:
+  ☐ Relearn
+
 
 Archive:
 
