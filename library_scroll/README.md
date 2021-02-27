@@ -1,3 +1,7 @@
+Library Scroll is a simple, niche web app that displays a list of hard-coded books on a large screen in a library or classroom.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
