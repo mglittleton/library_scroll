@@ -21,20 +21,22 @@ class App extends Component {
 
   componentDidMount() {
     if (REACT_APP_MODE == 'production') {
-      devBooks.forEach(e => {
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${e}&key=${REACT_APP_GOOGLE_API_KEY}`)
+      devBooks.forEach((e) => {
+        fetch(
+          `https://www.googleapis.com/books/v1/volumes?q=isbn:${e}&key=${REACT_APP_GOOGLE_API_KEY}`
+        )
           .then((response) => response.json())
           .then((result) => {
             if (result.totalItems) {
-              const books = result.items[0].volumeInfo
-              const newBooks = this.state.books
-              newBooks.push(books)
+              const books = result.items[0].volumeInfo;
+              const newBooks = this.state.books;
+              newBooks.push(books);
               this.setState({ books: newBooks });
             }
-         });
-      })
+          });
+      });
     } else if (REACT_APP_MODE == 'development') {
-      console.log('You are in development mode')
+      console.log('You are in development mode');
       newBookList.forEach((e) => {
         const book = e;
         const newBooks = this.state.books;
@@ -55,17 +57,20 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <Route exact path='/' render={props => <Scroll books={books} {...props} />} />
-        <Route path='/signin/' render={props => <SignIn {...props} />} />
-        <Route path='/register/' render={props => <Register {...props} />} />
-        <Route path='/admin/' render={props => <Admin {...props} />} />
+        <Route
+          exact
+          path="/"
+          render={(props) => <Scroll books={books} {...props} />}
+        />
+        <Route path="/signin/" render={(props) => <SignIn {...props} />} />
+        <Route path="/register/" render={(props) => <Register {...props} />} />
+        <Route path="/admin/" render={(props) => <Admin {...props} />} />
       </div>
     );
   }
 }
 
 export default App;
-
 
 /*
 // NOTE list of books that are hard coded so the site works with no back end. It will be replaced by a database once the second stage is complete.

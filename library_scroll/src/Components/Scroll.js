@@ -3,7 +3,6 @@ import Slider from 'react-slick';
 
 import Title from './Title';
 import Description from './Description';
-import NavBar from './NavBar'
 
 export default class Scroll extends Component {
   constructor(props) {
@@ -45,7 +44,7 @@ export default class Scroll extends Component {
     const title = book.title;
 
     return picInitSize ? (
-      <div className="slider" >
+      <div className="slider">
         <Title title={title} />
         <Slider {...settings} style={{ height: '40vh' }}>
           {books.map((e, i) => {

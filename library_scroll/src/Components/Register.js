@@ -1,10 +1,13 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 function Register() {
   return (
     <div>
       Go to the
-      <Link to='/admin' style={{color: 'white'}} > admin </Link>
+      <Link to="/admin" style={{ color: 'white' }}>
+        {' '}
+        admin{' '}
+      </Link>
       page
     </div>
   );
