@@ -7,20 +7,31 @@ Main Site:
   ☐ clean up all the CSS that is scattered throughout
   ☐ maybe build solid styled-components?
   ☐ make a pause button and/or speed scroll
-  ☐ Change site title and favicon
+  ✔ Change site title and favicon @done(02-27-21 17:31)
   ✔ ensure no console.logs @done(02-27-21 10:43)
-  ☐ Fill out README with explanations
+  ✔ Fill out README with explanations @done(02-27-21 17:36)
   ✔ Begin new project - front and back end - admin page @done(02-27-21 10:43)
   ☐ build a transition to larger and smaller pic sizes
+  ☐ Make Navbar switch use depending on location on site
 
 Admin Page:
-  ☐ Add Router to project
-  ☐ Add Sign-in button to Scroll
+  ✔ Add Router to project @done(02-27-21 17:32)
+  ✔ Add Sign-in button to Scroll @done(02-27-21 17:32)
+  ☐ Design the basic dashboard
 
 Sign In Page:
-  ☐ Sign In/Up
-  ☐ Password Rules
+  ✔ Sign In/Up @done(02-27-21 17:32)
+  ☐ Build boxes
+  ☐ Build logic for authentication
+  ☐ Save auth cookies
+  ☐ Copy everything over to Register and adapt
   ☐ OAuth?
+
+Register:
+  ☐ Mimic Signin page
+  ☐ Password Rules
+  ☐ New authentication
+
 
 Database/Back End:
   ☐ Relearn

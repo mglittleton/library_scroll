@@ -7,9 +7,9 @@ import './App.css';
 import Scroll from './Components/Scroll';
 import { newBookList } from './temp2';
 import NavBar from './Components/NavBar';
-import SignIn from './Components/SignIn';
+import SignIn from './Components/User/SignIn';
 import Admin from './Components/Admin';
-import Register from './Components/Register';
+import Register from './Components/User/Register';
 
 const { REACT_APP_GOOGLE_API_KEY, REACT_APP_MODE } = process.env;
 
