@@ -1,67 +1,30 @@
 import React, { Component } from 'react';
-import { Route, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import './App.css';
+import { getBooks } from './actions';
 import Scroll from './Components/Scroll';
-import { newBookList } from './temp2';
 import NavBar from './Components/NavBar';
 import SignIn from './Components/User/SignIn';
 import Admin from './Components/Admin';
 import Register from './Components/User/Register';
 import ProtectedRoute from './Components/User/ProtectedRoute';
 
-const { REACT_APP_GOOGLE_API_KEY, REACT_APP_MODE } = process.env;
-
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { books: [], pics: [] };
-  }
-
   componentDidMount() {
-    if (REACT_APP_MODE == 'production') {
-      devBooks.forEach((e) => {
-        fetch(
-          `https://www.googleapis.com/books/v1/volumes?q=isbn:${e}&key=${REACT_APP_GOOGLE_API_KEY}`
-        )
-          .then((response) => response.json())
-          .then((result) => {
-            if (result.totalItems) {
-              const books = result.items[0].volumeInfo;
-              const newBooks = this.state.books;
-              newBooks.push(books);
-              this.setState({ books: newBooks });
-            }
-          });
-      });
-    } else if (REACT_APP_MODE == 'development') {
-      console.log('You are in development mode');
-      newBookList.forEach((e) => {
-        const book = e;
-        const newBooks = this.state.books;
-        newBooks.push(book);
-        const pics = book.imageLinks;
-        const newPics = this.state.pics;
-        newPics.push(pics);
-        this.setState({
-          books: newBooks,
-          pics: newPics,
-        });
-      });
-    }
+    const { getBooks, isbnNums } = this.props;
+    getBooks(isbnNums);
   }
 
   render() {
-    const { books } = this.state;
-    localStorage.setItem('authToken', 'blah');
-
     return (
       <div className="App">
         <NavBar />
         <Switch>
-          <ProtectedRoute exact path="/" books={books} component={Scroll} />
+          <ProtectedRoute exact path="/" component={Scroll} />
           <ProtectedRoute path="/admin" component={Admin} />
           <Route path="/signin/" render={(props) => <SignIn {...props} />} />
           <Route
@@ -73,8 +36,15 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    isbnNums: state.isbnNums,
+  };
+};
 
-export default App;
+const connector = connect(mapStateToProps, { getBooks });
+
+export default connector(App);
 
 /*
 // NOTE list of books that are hard coded so the site works with no back end. It will be replaced by a database once the second stage is complete.

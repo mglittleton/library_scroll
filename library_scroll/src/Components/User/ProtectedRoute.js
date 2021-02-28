@@ -10,7 +10,6 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
       */
     return Boolean(localStorage.getItem('authToken'));
   };
-  console.log({...rest})
   return (
     <Route
       {...rest}

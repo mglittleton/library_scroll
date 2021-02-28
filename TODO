@@ -13,6 +13,7 @@ Main Site:
   ✔ Begin new project - front and back end - admin page @done(02-27-21 10:43)
   ☐ build a transition to larger and smaller pic sizes
   ☐ Make Navbar switch use depending on location on site
+  ✔ incorporate Redux and Router through project @done(02-28-21 14:17)
 
 Admin Page:
   ✔ Add Router to project @done(02-27-21 17:32)
