@@ -26,7 +26,8 @@ const initialState = {
     speed: 500,
     autoplay: true,
     autoplaySpeed: 10000,
-    initialSlide: 0
+    initialSlide: 0,
+    cssEase: 'ease-out',
   },
   activeIndex: undefined,
   blankBook: {
@@ -35,6 +36,10 @@ const initialState = {
   },
   popPercent: 75,
   picInitSize: 40,
+  user: {
+    auth:false,
+    name: ''
+  }
 };
 
 export default (state = initialState, action) => {
@@ -43,6 +48,10 @@ export default (state = initialState, action) => {
       return {...state, books: action.payload.books};
     case 'INDEX_CHANGE':
       return {...state, activeIndex: action.payload}
+    case 'LOGIN_SUCCESS':
+      return {...state, user: {auth: true, name: action.payload}}
+    case 'LOG_OUT':
+      return {...state, user: {auth: false, name: ''}}
     default:
       return state;
   }

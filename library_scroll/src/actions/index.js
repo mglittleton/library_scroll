@@ -34,3 +34,19 @@ export const getBooks = (bookList) => (dispatch) => {
 export const changeActive = (index) => (dispatch) => {
   dispatch({ type: 'INDEX_CHANGE', payload: index });
 };
+
+export const loggingIn = (user, pass) => dispatch => {
+  if (user && pass) {
+    localStorage.setItem('authToken', user)
+    dispatch({type: 'LOGIN_SUCCESS', payload: user})
+    return {status: true, message: "Success"}
+  } else {
+    loggingOut()
+    return {status: false, message: "Username and password are incorrect"}
+  }
+}
+
+export const loggingOut = () => dispatch => {
+  localStorage.removeItem('authToken')
+  dispatch({type: 'LOG_OUT'})
+}
