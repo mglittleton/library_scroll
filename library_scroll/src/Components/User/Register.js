@@ -4,7 +4,7 @@ function Register() {
   return (
     <div>
       Go to the
-      <Link to="/admin" style={{ color: 'white' }}>
+      <Link to="/" style={{ color: 'white' }}>
         {' '}
         admin{' '}
       </Link>

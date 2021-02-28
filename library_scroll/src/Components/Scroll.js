@@ -42,6 +42,7 @@ export default class Scroll extends Component {
     const book = activeIndex == undefined ? blankBook : books[activeIndex];
     const descr = book.description;
     const title = book.title;
+    console.log(this.props)
 
     return picInitSize ? (
       <div className="slider">

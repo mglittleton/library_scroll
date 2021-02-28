@@ -5,7 +5,7 @@ function NavBar() {
   return (
     <FlexRow justifyBetween style={{ height: '3vh', fontSize: '1em' }}>
       <div></div>
-      <Link to="/signin" style={{ color: 'white' }}>
+      <Link to="/admin" style={{ color: 'white' }}>
         Edit Titles
       </Link>
     </FlexRow>

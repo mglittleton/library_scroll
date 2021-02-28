@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -10,6 +10,7 @@ import NavBar from './Components/NavBar';
 import SignIn from './Components/User/SignIn';
 import Admin from './Components/Admin';
 import Register from './Components/User/Register';
+import ProtectedRoute from './Components/User/ProtectedRoute';
 
 const { REACT_APP_GOOGLE_API_KEY, REACT_APP_MODE } = process.env;
 
@@ -54,17 +55,20 @@ class App extends Component {
 
   render() {
     const { books } = this.state;
+    localStorage.setItem('authToken', 'blah');
+
     return (
       <div className="App">
         <NavBar />
-        <Route
-          exact
-          path="/"
-          render={(props) => <Scroll books={books} {...props} />}
-        />
-        <Route path="/signin/" render={(props) => <SignIn {...props} />} />
-        <Route path="/register/" render={(props) => <Register {...props} />} />
-        <Route path="/admin/" render={(props) => <Admin {...props} />} />
+        <Switch>
+          <ProtectedRoute exact path="/" books={books} component={Scroll} />
+          <ProtectedRoute path="/admin" component={Admin} />
+          <Route path="/signin/" render={(props) => <SignIn {...props} />} />
+          <Route
+            path="/register/"
+            render={(props) => <Register {...props} />}
+          />
+        </Switch>
       </div>
     );
   }

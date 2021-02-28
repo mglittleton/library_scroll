@@ -1,14 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, Switch } from 'react-router-dom';
+import ProtectedRoute from './User/ProtectedRoute';
 
 function Admin() {
   return (
     <div>
-      Go to the
-      <Link to="/" style={{ color: 'white' }}>
-        {' '}
-        scroll{' '}
-      </Link>
-      page
+      Hello
     </div>
   );
 }
