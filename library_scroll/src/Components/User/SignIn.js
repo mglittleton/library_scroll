@@ -30,7 +30,7 @@ function SignIn(props) {
     <FlexColumn alignCenter width="full" spaceTop="70px">
       <FlexColumn
         alignCenter
-        justifyAround
+        justifyBetween
         width="40%"
         height="50vh"
         style={{
@@ -66,7 +66,7 @@ function SignIn(props) {
           <input type="submit" value="Log In" />
         </form>
         <div className="error-box">{statusMessage.message}</div>
-        <div>Click here to register</div>
+        <Link to='/register' style={{ marginBottom: "20px", color: 'white' }}>Click here to register</Link>
       </FlexColumn>
     </FlexColumn>
   );

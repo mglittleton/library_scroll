@@ -35,7 +35,7 @@ function Register(props) {
     <FlexColumn alignCenter width="full" spaceTop="70px">
       <FlexColumn
         alignCenter
-        justifyAround
+        justifyBetween
         width="40%"
         height="50vh"
         style={{
@@ -70,7 +70,7 @@ function Register(props) {
           </FlexColumn>
 
           <FlexColumn spaceBottom="30px" justifyBetween alignCenter>
-            Password:
+            Retype Password:
             <input
               type="password"
               name="checkPass"
@@ -83,7 +83,7 @@ function Register(props) {
           <input type="submit" value="Register" />
         </form>
         <div className="error-box">{statusMessage.message}</div>
-        <div>Click here to register</div>
+        <Link to='/signin' style={{ marginBottom: "20px", color: 'white' }}>Already have an account?</Link>
       </FlexColumn>
     </FlexColumn>
   );
