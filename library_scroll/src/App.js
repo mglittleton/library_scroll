@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+
 import './App.css';
 import Scroll from './Components/Scroll';
 import { bookList } from './temp';
 
-// TODO while it doesn't matter much for this, I should hide this in a dotenv eventually
-const googleBooksAPI = 'AIzaSyCTE-A9T51L4HTR00zPIyAY5SpvLnN0tOg';
+const  { REACT_APP_GOOGLE_API_KEY } = process.env
 
 class App extends Component {
   constructor() {
@@ -17,10 +17,9 @@ class App extends Component {
 
   componentDidMount() {
     devBooks.forEach(e => {
-      fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${e}&key=${googleBooksAPI}`)
+      fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${e}&key=${REACT_APP_GOOGLE_API_KEY}`)
         .then((response) => response.json())
         .then((result) => {
-          console.log(result)
           if (result.totalItems) {
             const books = result.totalItems ? result.items[0].volumeInfo : false
             const newBooks = this.state.books
@@ -29,7 +28,8 @@ class App extends Component {
           }
        });
     })
-    // TODO this is a temp solution during development to ease the API usage
+    // TODO make this switch automatically if in dev
+    // NOTE this is a temp solution during development to ease the API usage
     // bookList.forEach((e) => {
     //   const book = e.items[0].volumeInfo;
     //   const newBooks = this.state.books;
@@ -83,10 +83,3 @@ const devBooks = [
   9781481460033
 ]
 
-// TODO clean up all the CSS that is scattered throughout
-// TODO maybe build solid styled-components?
-// TODO grab ISBN numbers from Google Drive doc
-// TODO move description down some
-// TODO make middle pic pop and/or side pics fade
-// TODO make descr editable from Google doc
-// TODO make a pause button and/or speed scroll
