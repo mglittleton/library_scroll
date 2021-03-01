@@ -52,6 +52,8 @@ export default (state = initialState, action) => {
       return {...state, user: {auth: true, name: action.payload}}
     case 'LOG_OUT':
       return {...state, user: {auth: false, name: ''}}
+    case "AUTH_OK":
+      return {...state, user: {auth: true, name: ''}}
     default:
       return state;
   }

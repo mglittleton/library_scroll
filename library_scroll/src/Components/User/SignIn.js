@@ -2,24 +2,28 @@ import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { FlexColumn } from '../customComponents';
 import { connect } from 'react-redux';
-import { loggingIn } from '../../actions';
+
+import { loggingIn, changeAuth } from '../../actions';
 
 function SignIn(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [statusMessage, setStatusMessage] = useState({
+    status: false,
+    message: '',
+  });
 
   useEffect(() => {
-    const prevAuth = localStorage.getItem('authToken')
-    if (props.auth || prevAuth) {
-      props.history.push('/admin')
+    if (props.auth) {
+      props.history.push('/admin');
     }
-  })
+  });
 
   const checkLogIn = (e) => {
     const user = e.target.username.value;
     const pass = e.target.password.value;
-    props.loggingIn(user, pass)
-    e.preventDefault()
+    props.loggingIn(user, pass);
+    e.preventDefault();
   };
 
   return (
@@ -61,11 +65,11 @@ function SignIn(props) {
           </FlexColumn>
           <input type="submit" value="Log In" />
         </form>
-        <div className="error-box"></div>
+        <div className="error-box">{statusMessage.message}</div>
         <div>Click here to register</div>
       </FlexColumn>
     </FlexColumn>
-  )
+  );
 }
 
 const mapStateToProps = (state) => {
@@ -74,6 +78,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const connector = connect(mapStateToProps, { loggingIn });
+const connector = connect(mapStateToProps, { loggingIn, changeAuth });
 
 export default connector(SignIn);

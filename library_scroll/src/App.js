@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import './App.css';
-import { getBooks } from './actions';
+import { getBooks, changeAuth } from './actions';
 import Scroll from './Components/Scroll';
 import NavBar from './Components/NavBar';
 import SignIn from './Components/User/SignIn';
@@ -15,14 +15,15 @@ import ProtectedRoute from './Components/User/ProtectedRoute';
 
 class App extends Component {
   componentDidMount() {
-    const { getBooks, isbnNums } = this.props;
+    const { getBooks, isbnNums, changeAuth, auth } = this.props;
+    changeAuth(auth)
     getBooks(isbnNums);
   }
 
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <NavBar {...this.props} />
         <Switch>
           <ProtectedRoute exact path="/" component={Scroll} />
           <ProtectedRoute path="/admin" component={Admin} />
@@ -39,10 +40,11 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     isbnNums: state.isbnNums,
+    auth: state.user.auth
   };
 };
 
-const connector = connect(mapStateToProps, { getBooks });
+const connector = connect(mapStateToProps, { getBooks, changeAuth });
 
 export default connector(App);
 

@@ -1,15 +1,38 @@
-import { Link } from 'react-router-dom';
-import { FlexRow } from './customComponents';
+import { Link, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-function NavBar() {
+import { FlexRow } from './customComponents';
+import { loggingOut } from '../actions';
+
+function NavBar(props) {
+  const visibility = props.auth ? 'visible' : 'hidden';
+  const location = props.history.location.pathname
+  const buttonText = location === "/" ? {link: '/admin', text: 'Edit Books'} : {link: '/', text: 'View Books'}
+  console.log(buttonText);
   return (
-    <FlexRow justifyBetween style={{ height: '3vh', fontSize: '1em' }}>
+    <FlexRow justifyBetween style={{ height: '3vh', fontSize: '0.8em' }}>
       <div></div>
-      <Link to="/admin" style={{ color: 'white' }}>
-        Edit Titles
-      </Link>
+      <div>
+        <Link
+          to="/signin"
+          onClick={props.loggingOut}
+          style={{ margin: '10px', color: 'white', visibility: visibility }}
+        >
+          Logout
+        </Link>
+
+        <Link to={buttonText.link} style={{ margin: '10px', color: 'white' }}>
+          {buttonText.text}
+        </Link>
+      </div>
     </FlexRow>
   );
 }
 
-export default NavBar;
+const mapStateToProps = (state) => {
+  return { auth: state.user.auth };
+};
+
+const connector = connect(mapStateToProps, { loggingOut });
+
+export default connector(NavBar);

@@ -31,7 +31,6 @@ export const FlexRow = styled.div`
     ((g = props.spaceBottom) => (g ? (g === true ? '10px' : g) : '0'))()};
   margin-top: ${(props) =>
     ((g = props.spaceTop) => (g ? (g === true ? '10px' : g) : '0'))()};
-  max-width: 100%;
   flex-grow: ${(props) =>
     ((g = props.grow) => (g ? (parseFloat(g) > -1 ? g : '1') : '0'))()};
   border: ${(props) => props.border ? '3px red solid' : ''};

@@ -14,8 +14,7 @@ function Register(props) {
   });
 
   useEffect(() => {
-    const prevAuth = localStorage.getItem('authToken');
-    if (props.auth || prevAuth) {
+    if (props.auth) {
       props.history.push('/admin');
     }
   });
@@ -24,12 +23,12 @@ function Register(props) {
     e.preventDefault();
     if (password != checkPass) {
       setStatusMessage({ status: false, message: 'Passwords do not match' });
-      return
+      return;
     }
     const user = e.target.username.value;
     const pass = e.target.password.value;
     const message = props.loggingIn(user, pass);
-    setStatusMessage(message)
+    setStatusMessage(message);
   };
 
   return (
