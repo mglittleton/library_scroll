@@ -46,6 +46,7 @@ class App extends Component {
 
   render() {
     const {books} = this.state
+    console.log(books)
     return (
       <div className="App">
         <Scroll books={books}/>
@@ -58,20 +59,29 @@ export default App;
 
 // TODO need to find an easy way to access the list of ISBN numbers
 const devBooks = [
-  9781534437333,
-  9781627791151,
-  9781532118517,
-  9780545723336,
-  9781338255720,
-  9781681199498,
-  9780823438686,
-  9781368013840,
-  9780545946179,
-  9781338129304,
-  9781368039932,
-  9781338157796,
-  9781338159318,
-];
+  9781368024662,
+  9781524738112,
+  9781328781505,
+  9780448478395,
+  9780399257308,
+  9781609809072,
+  9781324003601,
+  9781250295767,
+  9781250295811,
+  9781250295804,
+  9781250295774,
+  9781543554427,
+  9781338259148,
+  9781627795548,
+  9780316464475,
+  9781328460837,
+  9780316515467,
+  9781328884206,
+  9781682630761,
+  9781452169989,
+  9781484709146,
+  9781481460033
+]
 
 // TODO clean up all the CSS that is scattered throughout
 // TODO maybe build solid styled-components?
