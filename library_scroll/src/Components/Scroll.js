@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Slider from 'react-slick';
 import { connect } from 'react-redux';
 
@@ -7,17 +7,29 @@ import Description from './Description';
 import { changeActive } from '../actions';
 
 const Scroll = (props) => {
+  useEffect(() => {
+    changeActive(0)
+    settings.autoplaySpeed = 10000
+  }, [])
+
   const {
     settings,
     books,
     activeIndex,
     blankBook,
-    popPercent,
     picInitSize,
+    landing,
+    landPage,
     changeActive,
   } = props;
   const book = activeIndex == undefined ? blankBook : books[activeIndex];
-  const { description, title } = book;
+  const { description, title } = landPage ? landing : book;
+  const popPercent = landPage ? 0 : props.popPercent
+  if (landPage) {
+    settings.autoplaySpeed = landing.autoSpeed
+  } else {
+    settings.autoplaySpeed = 10000
+  }
 
   return picInitSize ? (
     <div className="slider">
@@ -76,6 +88,7 @@ const mapStateToProps = (state) => {
     activeIndex: state.activeIndex,
     popPercent: state.popPercent,
     picInitSize: state.picInitSize,
+    landing: state.landing
   };
 };
 

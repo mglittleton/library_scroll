@@ -25,8 +25,9 @@ class App extends Component {
       <div className="App">
         <NavBar {...this.props} />
         <Switch>
-          <ProtectedRoute exact path="/" component={Scroll} />
+          <ProtectedRoute exact path="/" landPage stay component={Scroll} />
           <ProtectedRoute path="/admin" component={Admin} />
+          <ProtectedRoute path="/scroll" component={Scroll} />
           <Route path="/signin/" render={(props) => <SignIn {...props} />} />
           <Route
             path="/register/"

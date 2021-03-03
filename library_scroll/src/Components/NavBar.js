@@ -6,12 +6,22 @@ import { loggingOut } from '../actions';
 
 function NavBar(props) {
   const visibility = props.auth ? 'visible' : 'hidden';
-  const location = props.history.location.pathname
-  const buttonText = location === "/" ? {link: '/admin', text: 'Edit Books'} : {link: '/', text: 'View Books'}
+  const location = props.history.location.pathname;
+  const buttonText =
+    location === '/'
+      ? { link: '/admin', text: 'Edit Books' }
+      : { link: '/scroll', text: 'View Books' };
   console.log(buttonText);
   return (
     <FlexRow justifyBetween style={{ height: '3vh', fontSize: '0.8em' }}>
-      <div></div>
+      <div>
+        <Link
+          to="/"
+          style={{ margin: '10px', color: 'white' }}
+        >
+          Home
+        </Link>
+      </div>
       <div>
         <Link
           to="/signin"

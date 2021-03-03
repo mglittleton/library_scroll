@@ -27,7 +27,7 @@ const initialState = {
     autoplay: true,
     autoplaySpeed: 10000,
     initialSlide: 0,
-    cssEase: 'ease-out',
+    cssEase: 'linear',
   },
   activeIndex: undefined,
   blankBook: {
@@ -39,6 +39,11 @@ const initialState = {
   user: {
     auth:false,
     name: ''
+  },
+  landing: {
+    title: "Library Scroll",
+    description: "Library Scroll is a web app for libraries to digitally display highlighted books. A librarian or teacher could generate a list of interesting books to display in their rooms or share with others to display.",
+    autoSpeed: 0
   }
 };
 
